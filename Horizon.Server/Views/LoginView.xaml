@@ -6,6 +6,6 @@
         mc:Ignorable="d"
         Title="LoginView" Height="450" Width="800" WindowStyle="None">
     <Grid>
-        
+        <Button x:Name="ButtonClick" Height="30" Width="100"></Button>
     </Grid>
 </Window>
