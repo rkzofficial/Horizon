@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Program.cpp" />
+    <ClCompile Include="Api\Api.cpp">
+      <Filter>Api</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception\Exception.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Exception">
+      <UniqueIdentifier>{681faa20-4a54-4026-ae15-2e6b7f5ab819}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Api">
+      <UniqueIdentifier>{d377911a-2d7f-42bd-96e6-edd8f50f0481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Networking">
+      <UniqueIdentifier>{0d46c75a-6d3c-4aa0-9809-840bfd17c68e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Api\Api.h">
+      <Filter>Api</Filter>
+    </ClInclude>
+    <ClInclude Include="Api\Structures.h">
+      <Filter>Api</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

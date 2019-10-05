@@ -1,0 +1,16 @@
+Whole Program Optimization - OFF
+C++ 20 With Modules Support
+Compile as C++ (/TP)
+
+#Libirary Directories
+kernel32.lib;_libcpmt.lib;_libcmt.lib;_msvcrt.lib;_ucrtbase.lib
+
+What Features we have ?
+
+C++ Standard Library
+Exception Handler (Custom)
+
+What's not working
+iostream( cout )
+
+#define _NO_CRT_STDIO_INLINE
