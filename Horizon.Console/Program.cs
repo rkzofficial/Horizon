@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Horizon.Console.Networking;
+using WebSocketSharp.Server;
 
 namespace Horizon.Console
 {
@@ -12,12 +14,16 @@ namespace Horizon.Console
         {
             try
             {
-                throw new NotImplementedException();
+                var server = new WebSocketServer(1997);
+                server.AddWebSocketService<HandleRDP>("/RDP");
+                server.Start();
+                System.Console.WriteLine("Server started at : " + server.Address);
+                System.Console.ReadKey(true);
+                server.Stop();
             }
-            catch (Exception e)
+            catch (Exception e) when (e is NullReferenceException || e is InvalidOperationException)
             {
                 System.Console.WriteLine(e);
-                System.Console.ReadLine();
             }
         }
     }

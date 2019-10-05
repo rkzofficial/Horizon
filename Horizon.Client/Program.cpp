@@ -1,16 +1,15 @@
-#define _NO_CRT_STDIO_INLINE
 #include "Api/Api.h"
-#include <cstdio>
+#include <iostream>
 
 using namespace Horizon::Client;
+using namespace std;
 
 int main() {
-
+	
 	try {
-		Api::LoadApis();
-		Api::_MessageBoxW(nullptr, L"This is a Test Message", L"Title", 0);
+		
 	}
 	catch (...) {
-		printf("Exception Thrown");
 	}
+	
 }

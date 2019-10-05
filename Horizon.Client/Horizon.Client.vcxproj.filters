@@ -19,6 +19,9 @@
     <Filter Include="Networking">
       <UniqueIdentifier>{0d46c75a-6d3c-4aa0-9809-840bfd17c68e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="VCRUNTIME">
+      <UniqueIdentifier>{fff80e00-8bcb-4f52-844f-13a3ab86fe8a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Api\Api.h">
