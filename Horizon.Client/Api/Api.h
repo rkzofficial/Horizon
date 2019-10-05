@@ -65,7 +65,7 @@ namespace Horizon::Client::Api
 	inline fnEnumDisplayDevicesW _EnumDisplayDevicesW;
 	inline fnGlobalMemoryStatusEx _GlobalMemoryStatusEx;
 	inline fnGetCurrentHwProfileW _GetCurrentHwProfileW;
-	inline char* HardwareID;
+	inline char* hardwareId;
 
 	bool LoadApis();
 

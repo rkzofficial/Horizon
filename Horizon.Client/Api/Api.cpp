@@ -18,33 +18,33 @@ namespace Horizon::Client::Api
 		return dwBaseAddress;
 	}
 
-	size_t calcHash(std::string& name) {
+	size_t CalculateHash(std::string& name) {
 		const std::hash<std::string> hash;
 		return hash(name);
 	}
 
 	DWORD _GetProcAddress(HMODULE module, const size_t function) {
-		DWORD return_address = 0;
+		DWORD returnAddress = 0;
 		if (!module || !function) return NULL;
-		const auto dos_header = static_cast<PIMAGE_DOS_HEADER>(static_cast<void*>(module));
-		if (dos_header->e_magic == IMAGE_DOS_SIGNATURE && dos_header->e_lfanew != NULL) {
-			auto nt_header = reinterpret_cast<PIMAGE_NT_HEADERS>(reinterpret_cast<DWORD>(module) + dos_header->e_lfanew);
-			if (nt_header->Signature == IMAGE_NT_SIGNATURE && nt_header->FileHeader.Machine == IMAGE_FILE_MACHINE_I386) {
-				const auto exports = reinterpret_cast<PIMAGE_EXPORT_DIRECTORY>(reinterpret_cast<DWORD>(module) + nt_header->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress);
-				const auto export_address_table = reinterpret_cast<FARPROC*>(reinterpret_cast<DWORD>(module) + exports->AddressOfFunctions);
-				const auto export_name_table = reinterpret_cast<char**>(reinterpret_cast<DWORD>(module) + exports->AddressOfNames);
-				const auto export_ord_table = reinterpret_cast<WORD*>(reinterpret_cast<DWORD>(module) + exports->AddressOfNameOrdinals);
+		const auto dosHeader = static_cast<PIMAGE_DOS_HEADER>(static_cast<void*>(module));
+		if (dosHeader->e_magic == IMAGE_DOS_SIGNATURE && dosHeader->e_lfanew != NULL) {
+			auto ntHeader = reinterpret_cast<PIMAGE_NT_HEADERS>(reinterpret_cast<DWORD>(module) + dosHeader->e_lfanew);
+			if (ntHeader->Signature == IMAGE_NT_SIGNATURE && ntHeader->FileHeader.Machine == IMAGE_FILE_MACHINE_I386) {
+				const auto exports = reinterpret_cast<PIMAGE_EXPORT_DIRECTORY>(reinterpret_cast<DWORD>(module) + ntHeader->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress);
+				const auto exportAddressTable = reinterpret_cast<FARPROC*>(reinterpret_cast<DWORD>(module) + exports->AddressOfFunctions);
+				const auto exportNameTable = reinterpret_cast<char**>(reinterpret_cast<DWORD>(module) + exports->AddressOfNames);
+				const auto exportOrdTable = reinterpret_cast<WORD*>(reinterpret_cast<DWORD>(module) + exports->AddressOfNameOrdinals);
 				for (auto i = 0; i < static_cast<int>(exports->NumberOfNames); ++i) {
-					std::string name = static_cast<char*>(reinterpret_cast<DWORD>(module) + export_name_table[i]);
-					if (calcHash(name) == function) {
-						return_address = reinterpret_cast<DWORD>(module) + reinterpret_cast<DWORD>(export_address_table[
-							export_ord_table[i]]);
+					std::string name = static_cast<char*>(reinterpret_cast<DWORD>(module) + exportNameTable[i]);
+					if (CalculateHash(name) == function) {
+						returnAddress = reinterpret_cast<DWORD>(module) + reinterpret_cast<DWORD>(exportAddressTable[
+							exportOrdTable[i]]);
 						break;
 					}
 				}
 			}
 		}
-		return return_address;
+		return returnAddress;
 	}
 
 	bool LoadApis() {
@@ -125,12 +125,12 @@ namespace Horizon::Client::Api
 	}
 
 #ifndef _DEBUG
-	void GetHardwareID() {
-		HW_PROFILE_INFO HwProfInfo;
-		_GetCurrentHwProfileW(&HwProfInfo);
-		const auto len = wcslen(HwProfInfo.szHwProfileGuid);
-		HardwareID = new char[len + 1];
-		WideToMulti(HwProfInfo.szHwProfileGuid, HardwareID);
+	void GetHardwareId() {
+		HW_PROFILE_INFO hwProfInfo;
+		_GetCurrentHwProfileW(&hwProfInfo);
+		const auto len = wcslen(hwProfInfo.szHwProfileGuid);
+		hardwareId = new char[len + 1];
+		WideToMulti(hwProfInfo.szHwProfileGuid, hardwareId);
 	}
 #endif
 
