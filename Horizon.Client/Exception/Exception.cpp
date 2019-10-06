@@ -1,3 +1,5 @@
+#ifndef _DEBUG
+
 #include <windows.h>
 #include <typeinfo>
 #include "Excpt.h"
@@ -558,7 +560,7 @@ void WorkerForAll::AssignCatchObj(const FrameInfo::Try::Catch& catchEntry, const
 			else
 				CopyMemory(PVOID(pDst), pObj, typeSub.mNSize);
 		}
-		default: ;
+		default:;
 		}
 	}
 }
@@ -965,3 +967,6 @@ namespace Exc
 	}
 }
 
+
+
+#endif

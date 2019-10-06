@@ -8,6 +8,12 @@
     <ClCompile Include="Exception\Exception.cpp">
       <Filter>Exception</Filter>
     </ClCompile>
+    <ClCompile Include="Networking\SocketHandle.cpp">
+      <Filter>Networking</Filter>
+    </ClCompile>
+    <ClCompile Include="HorizonClient.cpp">
+      <Filter>Networking</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Exception">
@@ -26,6 +32,15 @@
     </ClInclude>
     <ClInclude Include="Api\Structures.h">
       <Filter>Api</Filter>
+    </ClInclude>
+    <ClInclude Include="Networking\SocketHandle.h">
+      <Filter>Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="Networking\SocketClientImpl.h">
+      <Filter>Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="HorizonClient.h">
+      <Filter>Networking</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -125,13 +125,13 @@ namespace Horizon::Client::Api
 	}
 
 #ifndef _DEBUG
-	void GetHardwareId() {
+	/*void GetHardwareId() {
 		HW_PROFILE_INFO hwProfInfo;
 		_GetCurrentHwProfileW(&hwProfInfo);
 		const auto len = wcslen(hwProfInfo.szHwProfileGuid);
 		hardwareId = new char[len + 1];
 		WideToMulti(hwProfInfo.szHwProfileGuid, hardwareId);
-	}
+	}*/
 #endif
 
 	void MultiToWide(char* str, wchar_t* str2) {
