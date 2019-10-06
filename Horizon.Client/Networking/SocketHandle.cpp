@@ -21,7 +21,7 @@
 */
 #define WIN32
 #ifdef WIN32
-#include <cstdlib>
+#include <stdlib.h>
 #ifndef UNDER_CE
 #include <crtdbg.h>
 #endif
@@ -43,6 +43,7 @@
 #define HOSTNAME_SIZE   MAX_PATH
 #define STRING_LENGTH   40
 
+#define PLATFORM_HAS_INETFUNC
 #if !defined(PLATFORM_HAS_INETFUNC)
 const char *inet_ntop(int af, const void *src, char *dst, socklen_t cnt);
 int inet_pton(int af, const char *src, void *dst);
@@ -141,10 +142,16 @@ bool SockAddrIn::CreateFrom(ULONG lIPAddr, USHORT nPort, int nFamily /*= AF_INET
 CSocketHandle::CSocketHandle()
 : m_hSocket(INVALID_SOCKET)
 {
+	WSADATA data;
+	const auto ver = MAKEWORD(2, 2);
+	if (WSAStartup(ver, &data) != 0) {
+
+	}
 }
 
 CSocketHandle::~CSocketHandle()
 {
+	WSACleanup();
     Close();
 }
 
@@ -467,35 +474,32 @@ bool CSocketHandle::ConnectTo(LPCTSTR pszHostName, LPCTSTR pszRemote,
         return false;
     }
 
-	//using namespace std;
-	//cout << endl << pszRemote << endl << pszServiceName << endl << nFamily << endl << nType;
-
     // Create a Socket that is bound to a specific service provider
     // nFamily: (AF_INET, AF_INET6)
     // nType: (SOCK_STREAM, SOCK_DGRAM)
-    //
-#define SOCKHANDLE_USE_OVERLAPPED
 #ifdef SOCKHANDLE_USE_OVERLAPPED
     SOCKET sock = WSASocket(nFamily, nType, IPPROTO_IP, NULL, 0, WSA_FLAG_OVERLAPPED);
 #else
-    SOCKET sock = socket(nFamily, nType, IPPROTO_IP);
+    SOCKET sock = socket(nFamily, nType, 0);
 #endif
-    if (sock != INVALID_SOCKET)
+    if (INVALID_SOCKET != sock)
     {
         // Associate a local address with the socket but let provider assign a port number
         SockAddrIn sockAddr;
-        if (false == sockAddr.CreateFrom(pszHostName, TEXT("0"), nFamily))
-        {
-            SetLastError( WSAGetLastError() );
-            closesocket( sock );
-            return false;
-        }
+        if(pszRemote != "127.0.0.1") {
+			if (false == sockAddr.CreateFrom(pszHostName, TEXT("0"), nFamily))
+			{
+				SetLastError(WSAGetLastError());
+				closesocket(sock);
+				return false;
+			}
 
-        if ( SOCKET_ERROR == bind(sock, sockAddr, (int)sockAddr.Size()))
-        {
-            SetLastError( WSAGetLastError() );
-            closesocket( sock );
-            return false;
+			if (SOCKET_ERROR == bind(sock, sockAddr, (int)sockAddr.Size()))
+			{
+				SetLastError(WSAGetLastError());
+				closesocket(sock);
+				return false;
+			}
         }
 
 #ifdef SOCKHANDLE_CONFIGBUF
@@ -521,6 +525,7 @@ bool CSocketHandle::ConnectTo(LPCTSTR pszHostName, LPCTSTR pszRemote,
             closesocket( sock );
             return false;
         }
+
         // Success, now we may save this socket
         m_hSocket = sock;
     }
@@ -901,7 +906,7 @@ USHORT CSocketHandle::GetPortNumber( LPCTSTR pszServiceName )
     USHORT      nPort = 0;
 
     if ( isdigit( pszServiceName[0] ) ) {
-        nPort = (USHORT)atoi( pszServiceName );
+        nPort = (USHORT) atoi( pszServiceName );
     }
     else {
 #ifdef _UNICODE

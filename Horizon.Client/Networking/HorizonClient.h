@@ -1,10 +1,9 @@
 #pragma once
-#include "Networking/SocketClientImpl.h"
-#include <wtypes.h>
+#include "SocketClientImpl.h"
 
 namespace Horizon::Client::Networking
 {
-	class HorizonClient final : public ISocketClientHandler
+	class HorizonClient : public ISocketClientHandler
 	{
 	public:
 		void OnDataReceived(CSocketHandle*, const BYTE*, DWORD, const SockAddrIn&) override;

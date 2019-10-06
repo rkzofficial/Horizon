@@ -118,7 +118,7 @@ bool SocketClientImpl<T, tBufferSize>::StartClient(LPCTSTR pszHost, LPCTSTR pszR
     }
     if ( result )
     {
-       /* _thread = AtlCreateThread(SocketClientProc, this);
+        /*_thread = AtlCreateThread(SocketClientProc, this);
         if ( _thread == NULL )
         {
             DWORD dwError = GetLastError();

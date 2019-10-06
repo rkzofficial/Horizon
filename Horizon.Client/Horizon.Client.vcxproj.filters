@@ -11,7 +11,7 @@
     <ClCompile Include="Networking\SocketHandle.cpp">
       <Filter>Networking</Filter>
     </ClCompile>
-    <ClCompile Include="HorizonClient.cpp">
+    <ClCompile Include="Networking\HorizonClient.cpp">
       <Filter>Networking</Filter>
     </ClCompile>
   </ItemGroup>
@@ -39,7 +39,7 @@
     <ClInclude Include="Networking\SocketClientImpl.h">
       <Filter>Networking</Filter>
     </ClInclude>
-    <ClInclude Include="HorizonClient.h">
+    <ClInclude Include="Networking\HorizonClient.h">
       <Filter>Networking</Filter>
     </ClInclude>
   </ItemGroup>

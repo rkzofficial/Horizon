@@ -89,7 +89,7 @@
       <EnableModules>false</EnableModules>
       <DebugInformationFormat>None</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);_x86_;WIN32</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);_x86_;WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS</PreprocessorDefinitions>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <MinimalRebuild>false</MinimalRebuild>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
@@ -113,6 +113,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,14 +148,14 @@
   <ItemGroup>
     <ClCompile Include="Api\Api.cpp" />
     <ClCompile Include="Exception\Exception.cpp" />
-    <ClCompile Include="HorizonClient.cpp" />
+    <ClCompile Include="Networking\HorizonClient.cpp" />
     <ClCompile Include="Networking\SocketHandle.cpp" />
     <ClCompile Include="Program.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Api\Api.h" />
     <ClInclude Include="Api\Structures.h" />
-    <ClInclude Include="HorizonClient.h" />
+    <ClInclude Include="Networking\HorizonClient.h" />
     <ClInclude Include="Networking\SocketClientImpl.h" />
     <ClInclude Include="Networking\SocketHandle.h" />
   </ItemGroup>
