@@ -91,8 +91,10 @@ public:
 
     static bool IsConnectionDropped(DWORD dwError);
 
+
+    
 protected:
-    void Run();
+	void Run();
     static DWORD WINAPI SocketClientProc(thisClass* _this);
 
     T*              _pInterface;

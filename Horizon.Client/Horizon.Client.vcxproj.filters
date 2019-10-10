@@ -14,6 +14,9 @@
     <ClCompile Include="Networking\HorizonClient.cpp">
       <Filter>Networking</Filter>
     </ClCompile>
+    <ClCompile Include="Networking\Chat.pb.cpp">
+      <Filter>Networking</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Exception">
@@ -42,5 +45,11 @@
     <ClInclude Include="Networking\HorizonClient.h">
       <Filter>Networking</Filter>
     </ClInclude>
+    <ClInclude Include="Networking\Chat.pb.h">
+      <Filter>Networking</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

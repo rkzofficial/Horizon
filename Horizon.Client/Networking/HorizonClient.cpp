@@ -7,4 +7,9 @@ namespace Horizon::Client::Networking
 	{
 		std::cout << "Hello World";
 	}
+
+	void HorizonClient::OnConnectionDropped(CSocketHandle*)
+	{
+		std::cout << "Connection Dropped";
+	}
 }
