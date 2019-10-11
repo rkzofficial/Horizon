@@ -57,6 +57,9 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MessagePack, Version=1.7.3.7, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <HintPath>..\packages\MessagePack.1.7.3.7\lib\net47\MessagePack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -111,12 +114,6 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.3.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
-    <Reference Include="Networker, Version=3.0.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Networker.3.0.6\lib\netstandard2.0\Networker.dll</HintPath>
-    </Reference>
-    <Reference Include="Networker.Extensions.ProtobufNet, Version=3.0.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Networker.Extensions.ProtobufNet.3.0.6\lib\netstandard2.0\Networker.Extensions.ProtobufNet.dll</HintPath>
-    </Reference>
     <Reference Include="protobuf-net, Version=2.4.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
       <HintPath>..\packages\protobuf-net.2.4.1\lib\net40\protobuf-net.dll</HintPath>
     </Reference>
@@ -167,6 +164,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\Networker.Extensions.MessagePack\MessagePackBuilderExtensions.cs" />
+    <Compile Include="Extensions\Networker.Extensions.MessagePack\MessagePackPacketSerialiser.cs" />
+    <Compile Include="Networker\Client\Abstractions\ConnectResult.cs" />
+    <Compile Include="Networker\Client\Abstractions\IClient.cs" />
+    <Compile Include="Networker\Client\Abstractions\IClientBuilder.cs" />
+    <Compile Include="Networker\Client\Abstractions\IClientPacketProcessor.cs" />
+    <Compile Include="Networker\Client\Client.cs" />
+    <Compile Include="Networker\Client\ClientBuilder.cs" />
+    <Compile Include="Networker\Client\ClientBuilderOptions.cs" />
+    <Compile Include="Networker\Client\ClientPacketProcessor.cs" />
+    <Compile Include="Networker\Client\UdpClientSender.cs" />
+    <Compile Include="Networker\Common\Abstractions\BuilderBase.cs" />
+    <Compile Include="Networker\Common\Abstractions\IBuilder.cs" />
+    <Compile Include="Networker\Common\Abstractions\IBuilderOptions.cs" />
+    <Compile Include="Networker\Common\Abstractions\IMiddlewareHandler.cs" />
+    <Compile Include="Networker\Common\Abstractions\IPacketContext.cs" />
+    <Compile Include="Networker\Common\Abstractions\IPacketHandler.cs" />
+    <Compile Include="Networker\Common\Abstractions\IPacketHandlerModule.cs" />
+    <Compile Include="Networker\Common\Abstractions\IPacketHandlers.cs" />
+    <Compile Include="Networker\Common\Abstractions\IPacketSerialiser.cs" />
+    <Compile Include="Networker\Common\Abstractions\ISender.cs" />
+    <Compile Include="Networker\Common\AsyncUserToken.cs" />
+    <Compile Include="Networker\Common\ClientSettings.cs" />
+    <Compile Include="Networker\Common\LoggingExtensions.cs" />
+    <Compile Include="Networker\Common\ObjectPool.cs" />
+    <Compile Include="Networker\Common\PacketContext.cs" />
+    <Compile Include="Networker\Common\PacketHandlerBase.cs" />
+    <Compile Include="Networker\Common\PacketHandlerModule.cs" />
+    <Compile Include="Networker\Common\PacketHandlerModuleBase.cs" />
+    <Compile Include="Networker\Common\PacketHandlers.cs" />
+    <Compile Include="Networker\Common\PacketSerialiserProvider.cs" />
+    <Compile Include="Networker\Common\TcpSender.cs" />
+    <Compile Include="Networker\Common\UdpSender.cs" />
+    <Compile Include="Networker\DefaultFormatter\DefaultNetworkerFormatterExtension.cs" />
+    <Compile Include="Networker\DefaultFormatter\DefaultNetworkerPacketBase.cs" />
+    <Compile Include="Networker\DefaultFormatter\DefaultNetworkerPacketSerialiser.cs" />
+    <Compile Include="Networker\Server\Abstractions\IBufferManager.cs" />
+    <Compile Include="Networker\Server\Abstractions\IServer.cs" />
+    <Compile Include="Networker\Server\Abstractions\IServerBuilder.cs" />
+    <Compile Include="Networker\Server\Abstractions\IServerInformation.cs" />
+    <Compile Include="Networker\Server\Abstractions\IServerPacketProcessor.cs" />
+    <Compile Include="Networker\Server\Abstractions\ISocketListener.cs" />
+    <Compile Include="Networker\Server\Abstractions\ITcpConnection.cs" />
+    <Compile Include="Networker\Server\Abstractions\ITcpConnections.cs" />
+    <Compile Include="Networker\Server\Abstractions\ITcpSocketListener.cs" />
+    <Compile Include="Networker\Server\Abstractions\ITcpSocketListenerFactory.cs" />
+    <Compile Include="Networker\Server\Abstractions\IUdpSocketListener.cs" />
+    <Compile Include="Networker\Server\Abstractions\IUdpSocketListenerFactory.cs" />
+    <Compile Include="Networker\Server\Abstractions\IUdpSocketSender.cs" />
+    <Compile Include="Networker\Server\BufferManager.cs" />
+    <Compile Include="Networker\Server\DefaultTcpSocketListenerFactory.cs" />
+    <Compile Include="Networker\Server\DefaultUdpSocketListenerFactory.cs" />
+    <Compile Include="Networker\Server\Server.cs" />
+    <Compile Include="Networker\Server\ServerBuilder.cs" />
+    <Compile Include="Networker\Server\ServerBuilderOptions.cs" />
+    <Compile Include="Networker\Server\ServerInformation.cs" />
+    <Compile Include="Networker\Server\ServerInformationEventArgs.cs" />
+    <Compile Include="Networker\Server\ServerPacketProcessor.cs" />
+    <Compile Include="Networker\Server\TcpConnection.cs" />
+    <Compile Include="Networker\Server\TcpConnectionConnectedEventArgs.cs" />
+    <Compile Include="Networker\Server\TcpConnectionDisconnectedEventArgs.cs" />
+    <Compile Include="Networker\Server\TcpConnections.cs" />
+    <Compile Include="Networker\Server\TcpSocketListener.cs" />
+    <Compile Include="Networker\Server\UdpClientListener.cs" />
+    <Compile Include="Networker\Server\UdpSocketListener.cs" />
+    <Compile Include="Networker\Server\UdpSocketSender.cs" />
     <Compile Include="Networking\ChatPacketHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -190,7 +253,6 @@
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
@@ -202,6 +264,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Extensions\Networker.Extensions.MessagePack\Networker.Extensions.MessagePack.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

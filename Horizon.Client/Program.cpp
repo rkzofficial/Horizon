@@ -1,47 +1,66 @@
 #include "Networking/HorizonClient.h"
 #include <iostream>
-#include <fstream>
 #include <ws2def.h>
 #include "Api/Api.h"
-#include "Networking/Chat.pb.h"
+#include <msgpack.hpp>
+#include <charconv>
+#include <fstream>
 
 using namespace std;
 using namespace Horizon::Client::Networking;
 using namespace Horizon::Client::Api;
 
 
-void Serialize() {
+class ChatPacket {
+public:
+	int Age;
+	string Name;
+	string Message;
+	string Designation;
+	ChatPacket() {  }
+	ChatPacket(int a1, string s1, string s2, string s3) : Age(a1), Name(s1), Message(s2), Designation(s3) {  }
+	MSGPACK_DEFINE(Age, Name, Message, Designation);
+	size_t Size() const {
+		return sizeof(Age) + Name.size() + Message.size() + Designation.size();
+	}
+};
 
-	ChatPacket object;
-	object.set_message("Hello Google Protobuf");
-	const auto size = object.ByteSizeLong();
-	const auto buffer = new char[size];
-	object.SerializeToArray(buffer, size);
-	cout << buffer;
-	ofstream myfile;
-	myfile.open("example.bin");
-	myfile << buffer;
-	myfile.close();
-	delete[] buffer;
+void Serialize() {
+	const string packetName = "ChatPacket";
+	const ChatPacket packet(18, "MSGPACK", "Hello MessagePack", "Programmer");
+	auto packetNameSize = packetName.size();
+	auto packetSize = packet.Size() + 1;
+	msgpack::sbuffer buf;
+	buf.write(reinterpret_cast<char*>(&packetNameSize), 4);
+	buf.write(reinterpret_cast<char*>(&packetSize), 4);
+	buf.write(packetName.c_str(), 10);
+	pack(buf, packet);	
+	ofstream file("MsgPackCPP.bin", ofstream::binary);
+	file.write(buf.data(), buf.size());
+	file.close();
 }
 void Initialize() {
 	
 	SocketClientImpl<HorizonClient> client;
+	HorizonClient handler;
 	if(client.StartClient(nullptr, "127.0.0.1", "1997", AF_INET, SOCK_STREAM)) {
-		
-		ChatPacket object;
-		object.set_message("Hello Google Protobuf");
-		const auto size = object.ByteSizeLong();
-		const auto buffer = new char[size];
-		object.SerializeToArray(buffer, size);
 
-		string msg = "Hello Google Protobuf";
-		client.Write((const LPBYTE)msg.c_str(), msg.size());
-		
-		delete[] buffer;
-		
+		const string packetName = "ChatPacket";
+		const ChatPacket packet(18, "MSGPACK", "Hello MessagePack", "Programmer");
+		auto packetNameSize = packetName.size();
+		auto packetSize = packet.Size() + 1;
+		msgpack::sbuffer buf;
+		buf.write(reinterpret_cast<char*>(&packetNameSize), 4);
+		buf.write(reinterpret_cast<char*>(&packetSize), 4);
+		buf.write(packetName.c_str(), 10);
+		pack(buf, packet);
+
+		client.Write(reinterpret_cast<const LPBYTE>(buf.data()), buf.size());
+
+		client.SetInterface(&handler);
+
 		while(true) {
-			Sleep(1000);
+			
 		}
 	}
 	else
@@ -51,14 +70,14 @@ void Initialize() {
 int main()
 {
 	LoadApis();
-	Serialize();
 	try 
 	{
-		while(true) {
+		Initialize();
+		/*while(true) {
 			cout << "Trying to connect\n";
 			Initialize();
 			Sleep(1000);
-		}
+		}*/
 	}
 	catch (...) 
 	{

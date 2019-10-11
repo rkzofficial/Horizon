@@ -1,6 +1,6 @@
 ﻿using Networker.Server;
 using Networker.Client;
-using Networker.Extensions.ProtobufNet;
+using Networker.DefaultFormatter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,8 @@ using Microsoft.Extensions.Logging;
 using Horizon.Console.Networking;
 using Networker.Client.Abstractions;
 using System.IO;
+using MessagePack;
+using Networker.Extensions.MessagePack;
 using ProtoBuf;
 
 namespace Horizon.Console
@@ -34,7 +36,7 @@ namespace Horizon.Console
                     loggingBuilder.AddConfiguration(config.GetSection("Logging"));
                     loggingBuilder.AddConsole();
                 })
-                .UseProtobufNet()
+                .UseMessagePack()
                 .Build();
         }
 
@@ -60,28 +62,24 @@ namespace Horizon.Console
                     loggingBuilder.AddConsole();
                 })
                 .RegisterPacketHandler<ChatPacket, ChatPacketHandler>()
-                .UseProtobufNet()
+                .UseMessagePack()
                 .Build();
 
             server.Start();
 
-            var gameClient = new GameClient();
-            gameClient.Client.Connect();
+            //var gameClient = new GameClient();
+            //gameClient.Client.Connect();
 
-            var packet = new ChatPacket
-            {
-                Message = "Hello Google Protobuf"
-            };
-
-            using (var file = File.Create("chat.bin"))
-            {
-                Serializer.Serialize(file, packet);
-            }
+            //var packet = new ChatPacket
+            //{
+            //    Age = 18,
+            //    Name = "MSGPACK",
+            //    Message = "Hello MessagePack",
+            //    Designation = "Programmer"
+            //};
 
             while (server.Information.IsRunning)
             {
-                gameClient.Client.Send(packet);
-
                 Thread.Sleep(1000);
             }
         }

@@ -148,7 +148,6 @@
   <ItemGroup>
     <ClCompile Include="Api\Api.cpp" />
     <ClCompile Include="Exception\Exception.cpp" />
-    <ClCompile Include="Networking\Chat.pb.cpp" />
     <ClCompile Include="Networking\HorizonClient.cpp" />
     <ClCompile Include="Networking\SocketHandle.cpp" />
     <ClCompile Include="Program.cpp" />
@@ -156,7 +155,6 @@
   <ItemGroup>
     <ClInclude Include="Api\Api.h" />
     <ClInclude Include="Api\Structures.h" />
-    <ClInclude Include="Networking\Chat.pb.h" />
     <ClInclude Include="Networking\HorizonClient.h" />
     <ClInclude Include="Networking\SocketClientImpl.h" />
     <ClInclude Include="Networking\SocketHandle.h" />

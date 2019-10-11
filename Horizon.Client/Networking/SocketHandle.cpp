@@ -477,6 +477,7 @@ bool CSocketHandle::ConnectTo(LPCTSTR pszHostName, LPCTSTR pszRemote,
     // Create a Socket that is bound to a specific service provider
     // nFamily: (AF_INET, AF_INET6)
     // nType: (SOCK_STREAM, SOCK_DGRAM)
+#define SOCKHANDLE_USE_OVERLAPPED
 #ifdef SOCKHANDLE_USE_OVERLAPPED
     SOCKET sock = WSASocket(nFamily, nType, IPPROTO_IP, NULL, 0, WSA_FLAG_OVERLAPPED);
 #else

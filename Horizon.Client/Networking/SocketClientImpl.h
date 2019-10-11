@@ -93,7 +93,7 @@ public:
 
 
     
-protected:
+//protected:
 	void Run();
     static DWORD WINAPI SocketClientProc(thisClass* _this);
 

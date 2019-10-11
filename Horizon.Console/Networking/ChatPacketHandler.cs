@@ -3,21 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProtoBuf;
+using MessagePack;
 using Microsoft.Extensions.Logging;
 using Networker.Common;
 using Networker.Common.Abstractions;
 
 namespace Horizon.Console.Networking
 {
-    [ProtoContract]
+    [MessagePackObject]
     public class ChatPacket
     {
-        //[Key(1)]
-        //public virtual string Name { get; set; }
 
-        [ProtoMember(1)]
+        [Key(0)] 
+        public virtual int Age { get; set; }
+
+        [Key(1)]
+        public virtual string Name { get; set; }
+
+        [Key(2)]
         public virtual string Message { get; set; }
+
+        [Key(3)]
+        public virtual string Designation { get; set; }
     }
 
     public class ChatPacketHandler : PacketHandlerBase<ChatPacket>
@@ -32,6 +39,8 @@ namespace Horizon.Console.Networking
         public override async Task Process(ChatPacket packet, IPacketContext packetContext)
         {
             _logger.LogDebug("I received the chat message: " + packet.Message);
+            packetContext.Sender.Send(Encoding.ASCII.GetBytes(packet.Message));
+
         }
     }
 }
