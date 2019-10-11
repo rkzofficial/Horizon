@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horizon.Console", "Horizon.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horizon.Web", "Horizon.Web\Horizon.Web.csproj", "{A9665B06-B340-4BD5-8530-449B81F4993D}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Horizon.Data", "Horizon.Data\Horizon.Data.sqlproj", "{BE69F4FF-FF97-4630-997D-6CA387EB762E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,24 @@ Global
 		{A9665B06-B340-4BD5-8530-449B81F4993D}.Release|x64.Build.0 = Release|Any CPU
 		{A9665B06-B340-4BD5-8530-449B81F4993D}.Release|x86.ActiveCfg = Release|Any CPU
 		{A9665B06-B340-4BD5-8530-449B81F4993D}.Release|x86.Build.0 = Release|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Debug|x64.Build.0 = Debug|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Debug|x64.Deploy.0 = Debug|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Debug|x86.Build.0 = Debug|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Release|x64.ActiveCfg = Release|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Release|x64.Build.0 = Release|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Release|x64.Deploy.0 = Release|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Release|x86.ActiveCfg = Release|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Release|x86.Build.0 = Release|Any CPU
+		{BE69F4FF-FF97-4630-997D-6CA387EB762E}.Release|x86.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

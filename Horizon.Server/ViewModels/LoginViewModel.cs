@@ -17,10 +17,12 @@ namespace Horizon.Server.ViewModels
     {
         private string _username;
         private string _password;
-        private IAPIHelper _apiHelper;
+        private readonly IAPIHelper _apiHelper;
+        private IWindowManager _windowManager;
 
-        public LoginViewModel(IAPIHelper apiHelper)
+        public LoginViewModel(IWindowManager windowManager, IAPIHelper apiHelper)
         {
+            _windowManager = windowManager;
             _apiHelper = apiHelper;
         }
         public string Username
@@ -68,7 +70,9 @@ namespace Horizon.Server.ViewModels
             try
             {
                 var result = await _apiHelper.Authenticate(Username, Password);
-                Xceed.Wpf.Toolkit.MessageBox.Show("Login Successfull");
+                _windowManager.ShowWindow(new HorizonViewModel(), null, null);
+                TryClose();
+                
             }
             catch (Exception ex)
             {

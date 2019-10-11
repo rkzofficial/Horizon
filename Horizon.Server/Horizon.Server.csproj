@@ -109,7 +109,11 @@
     <Compile Include="Helper\PasswordBoxHelper.cs" />
     <Compile Include="Helper\SecureStringHelper.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
+    <Compile Include="ViewModels\HorizonViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="Views\HorizonView.xaml.cs">
+      <DependentUpon>HorizonView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
@@ -145,6 +149,10 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="Style\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HorizonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

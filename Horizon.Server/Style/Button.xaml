@@ -9,7 +9,6 @@
         <ControlTemplate TargetType="Button">
           <Border CornerRadius="5" Background="{TemplateBinding Background}" BorderThickness="1">
             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
-
             </ContentPresenter>
           </Border>
         </ControlTemplate>
