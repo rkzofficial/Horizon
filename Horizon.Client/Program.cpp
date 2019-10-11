@@ -56,12 +56,6 @@ void Initialize() {
 		pack(buf, packet);
 
 		client.Write(reinterpret_cast<const LPBYTE>(buf.data()), buf.size());
-
-		client.SetInterface(&handler);
-
-		while(true) {
-			
-		}
 	}
 	else
 		cout << "Connection Failed\n";
