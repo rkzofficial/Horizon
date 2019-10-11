@@ -1,4 +1,4 @@
-﻿using Horizon.Server.Models;
+﻿using Horizon.Server.UWP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Horizon.Server.Helper
+namespace Horizon.Server.UWP.Helper
 {
     public class APIHelper : IAPIHelper
     {

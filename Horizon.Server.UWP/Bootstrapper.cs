@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using Caliburn.Micro;
-using Horizon.Server.Helper;
-using Horizon.Server.ViewModels;
-using Xceed.Wpf.Toolkit;
+using Horizon.Server.UWP.Helper;
+using Horizon.Server.UWP.ViewModels;
+using Windows.UI.Xaml.Controls;
 
-namespace Horizon.Server
+namespace Horizon.Server.UWP
 {
     public class Bootstrapper : BootstrapperBase
     {
@@ -42,7 +41,7 @@ namespace Horizon.Server
         }
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
-            DisplayRootViewFor<ShellViewModel>();
+            DisplayRootViewFor<LoginViewModel>();
         }
 
         protected override object GetInstance(Type service, string key)

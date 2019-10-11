@@ -1,40 +1,37 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using Horizon.Server.UWP.Helper;
+using Horizon.Server.UWP.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using Caliburn.Micro;
-using Xceed.Wpf.Toolkit;
-using Horizon.Server.Helper;
-using PropertyChanged;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
 
-namespace Horizon.Server.ViewModels
+namespace Horizon.Server.UWP.ViewModels
 {
     public class LoginViewModel : Screen
-    {
+    { 
         private string _username;
         private string _password;
         private bool _clicked;
         private readonly IAPIHelper _apiHelper;
-        private readonly IWindowManager _windowManager;
 
-        public LoginViewModel(HorizonViewModel horizonVM, IWindowManager windowManager, IAPIHelper apiHelper)
+        public LoginViewModel(IAPIHelper apiHelper)
         {
-            _windowManager = windowManager;
             _apiHelper = apiHelper;
             Username = "horizon@horizon.com";
             Password = "Pass123!";
         }
         public string Username
         {
-            get 
-            { 
+            get
+            {
                 return _username;
             }
-            set 
+            set
             {
                 _username = value;
             }
@@ -42,23 +39,22 @@ namespace Horizon.Server.ViewModels
 
         public string Password
         {
-            get 
+            get
             {
                 return _password;
             }
-            set 
+            set
             {
                 _password = value;
             }
         }
-
         public bool CanLogin
         {
             get
             {
                 bool output = false;
 
-                if(Username?.Length > 0 && Password?.Length > 0 && _clicked == false)
+                if (Username?.Length > 0 && Password?.Length > 0 && _clicked == false)
                 {
                     output = true;
                 }
@@ -66,24 +62,25 @@ namespace Horizon.Server.ViewModels
             }
         }
 
-        public void Login()
+        public async Task Login()
         {
             _clicked = true;
             NotifyOfPropertyChange(() => CanLogin);
+            var msg = new MessageDialog("");
             try
             {
-                var result = _apiHelper.Authenticate(Username, Password);
-                _windowManager.ShowWindow(new HorizonViewModel(), null, null);
-                TryClose();
+                var result = await _apiHelper.Authenticate(Username, Password);
+                msg.Content = "Login Successfull";
+                await msg.ShowAsync();
 
             }
-            catch (Exception ex)
+            catch (HttpRequestException ex)
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show(ex.Message);
+                msg.Content = ex.InnerException.Message;
+                await msg.ShowAsync();
             }
             _clicked = false;
             NotifyOfPropertyChange(() => CanLogin);
         }
-
     }
 }

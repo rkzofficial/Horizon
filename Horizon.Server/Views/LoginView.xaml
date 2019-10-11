@@ -1,4 +1,4 @@
-﻿<Window x:Class="Horizon.Server.Views.LoginView"
+﻿<UserControl x:Class="Horizon.Server.Views.LoginView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,20 +6,21 @@
         xmlns:local="clr-namespace:Horizon.Server.Views"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="LoginView" Height="700"
-        Width="1000" WindowStyle="None" ResizeMode="NoResize">
-  <Grid Background="#494dca">
-    <Grid Height="520" Width="800"  >
+        Height="520"
+        Width="800">
+  <!--Background="#494dca"-->
+    <Grid >
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Height="520" Width="800"  >
 
-      <Grid Height="520" Width="480" VerticalAlignment="Top" HorizontalAlignment="Left" Background="White">
-        <StackPanel>
-          <TextBlock FontSize="30" Foreground="Black" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65 65 0 0" Width="90" Height="57">Log in</TextBlock>
-          <TextBlock FontSize="15" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65 20 0 0" Height="30">Username</TextBlock>
-          <xctk:WatermarkTextBox x:Name="Username" BorderThickness="0 0 0 1" FontSize="15" Height="25" Margin="65,0,54,0" Watermark="example123"  />
-          <TextBlock FontSize="15" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65 20 0 0" Height="30">Password</TextBlock>
-          <!--<xctk:WatermarkPasswordBox x:Name="Password" BorderThickness="0 0 0 1" FontSize="15" Height="25" Margin="65,0,54,0" Watermark="Enter your password"  />-->
-          <PasswordBox x:Name="Password" BorderThickness="0 0 0 1" FontSize="15" Height="25" Margin="65,0,54,0"/>
-          <Button
+            <Grid Height="520" Width="480" VerticalAlignment="Top" HorizontalAlignment="Left" Background="White">
+                <StackPanel>
+                    <TextBlock FontSize="30" Foreground="Black" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65 65 0 0" Width="90" Height="57">Log in</TextBlock>
+                    <TextBlock FontSize="15" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65 20 0 0" Height="30">Username</TextBlock>
+                    <xctk:WatermarkTextBox x:Name="Username" BorderThickness="0 0 0 1" FontSize="15" Height="25" Margin="65,0,54,0" Watermark="example123" />
+                    <TextBlock FontSize="15" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65 20 0 0" Height="30">Password</TextBlock>
+                    <!--<xctk:WatermarkPasswordBox x:Name="Password" BorderThickness="0 0 0 1" FontSize="15" Height="25" Margin="65,0,54,0" Watermark="Enter your password"  />-->
+                    <PasswordBox x:Name="Password" BorderThickness="0 0 0 1" FontSize="15" Height="25" Margin="65,0,54,0"/>
+                    <Button
             Style="{StaticResource RoundButtonTemplate}"
             Height="45"
             BorderBrush="#fff"
@@ -29,16 +30,16 @@
             FontSize="20"
             Margin="65,50,54,0" FontFamily="Tw Cen MT" RenderTransformOrigin="0.51,0.533"
           />
-        </StackPanel>
+                </StackPanel>
 
-      </Grid>
+            </Grid>
 
-      <Grid Height="520" Width="320" VerticalAlignment="Top" HorizontalAlignment="Right" Background="#FFF1F1F1" >
+            <Grid Height="520" Width="320" VerticalAlignment="Top" HorizontalAlignment="Right" Background="#FFF1F1F1" >
 
-      </Grid>
+            </Grid>
+
+        </Grid>
+
 
     </Grid>
-
-
-  </Grid>
-</Window>
+</UserControl>
