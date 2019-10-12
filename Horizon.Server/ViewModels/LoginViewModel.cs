@@ -10,6 +10,7 @@ using Caliburn.Micro;
 using Xceed.Wpf.Toolkit;
 using Horizon.Server.Helper;
 using PropertyChanged;
+using Horizon.Server.EventModels;
 
 namespace Horizon.Server.ViewModels
 {
@@ -19,12 +20,12 @@ namespace Horizon.Server.ViewModels
         private string _password;
         private bool _clicked;
         private readonly IAPIHelper _apiHelper;
-        private readonly IWindowManager _windowManager;
+        private readonly EventAggregator _events;
 
-        public LoginViewModel(HorizonViewModel horizonVM, IWindowManager windowManager, IAPIHelper apiHelper)
+        public LoginViewModel(IAPIHelper apiHelper, EventAggregator events)
         {
-            _windowManager = windowManager;
             _apiHelper = apiHelper;
+            _events = events;
             Username = "horizon@horizon.com";
             Password = "Pass123!";
         }
@@ -72,10 +73,8 @@ namespace Horizon.Server.ViewModels
             NotifyOfPropertyChange(() => CanLogin);
             try
             {
-                var result = _apiHelper.Authenticate(Username, Password);
-                _windowManager.ShowWindow(new HorizonViewModel(), null, null);
-                TryClose();
-
+                //var result = _apiHelper.Authenticate(Username, Password);
+                _events.PublishOnUIThread(new LogOnEvent());
             }
             catch (Exception ex)
             {

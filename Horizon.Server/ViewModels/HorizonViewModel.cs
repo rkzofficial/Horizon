@@ -9,5 +9,9 @@ namespace Horizon.Server.ViewModels
 {
     public class HorizonViewModel : Screen
     {
+        public void Click()
+        {
+            Xceed.Wpf.Toolkit.MessageBox.Show("Clicked");
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using Horizon.Server.UWP.EventModels;
 using Horizon.Server.UWP.Helper;
 using Horizon.Server.UWP.Models;
 using System;
@@ -18,10 +19,12 @@ namespace Horizon.Server.UWP.ViewModels
         private string _password;
         private bool _clicked;
         private readonly IAPIHelper _apiHelper;
+        private readonly EventAggregator _events;
 
-        public LoginViewModel(IAPIHelper apiHelper)
+        public LoginViewModel(IAPIHelper apiHelper, EventAggregator events)
         {
             _apiHelper = apiHelper;
+            _events = events;
             Username = "horizon@horizon.com";
             Password = "Pass123!";
         }
@@ -69,9 +72,10 @@ namespace Horizon.Server.UWP.ViewModels
             var msg = new MessageDialog("");
             try
             {
-                var result = await _apiHelper.Authenticate(Username, Password);
-                msg.Content = "Login Successfull";
-                await msg.ShowAsync();
+                //var result = await _apiHelper.Authenticate(Username, Password);
+                //msg.Content = "Login Successfull";
+                //await msg.ShowAsync();
+                _events.PublishOnUIThread(new LogOnEvent());
 
             }
             catch (HttpRequestException ex)

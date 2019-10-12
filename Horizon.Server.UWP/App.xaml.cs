@@ -45,7 +45,8 @@ namespace Horizon.Server.UWP
 
 
             _container
-                .Singleton<IAPIHelper, APIHelper>();
+                .Singleton<IAPIHelper, APIHelper>()
+                .Singleton<EventAggregator>();
 
             _container.PerRequest<ShellViewModel>();
             _container.PerRequest<LoginViewModel>();

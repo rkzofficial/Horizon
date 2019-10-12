@@ -104,6 +104,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EventModels\LogOnEvent.cs" />
     <Compile Include="Helper\APIHelper.cs" />
     <Compile Include="Helper\IAPIHelper.cs" />
     <Compile Include="Helper\PasswordBoxHelper.cs" />

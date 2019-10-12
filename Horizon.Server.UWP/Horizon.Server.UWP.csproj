@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EventModels\LogOnEvent.cs" />
     <Compile Include="Helper\APIHelper.cs" />
     <Compile Include="Helper\IAPIHelper.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
@@ -189,6 +190,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

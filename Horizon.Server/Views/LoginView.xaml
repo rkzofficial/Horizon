@@ -16,9 +16,8 @@
                 <StackPanel>
                     <TextBlock FontSize="30" Foreground="Black" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65 65 0 0" Width="90" Height="57">Log in</TextBlock>
                     <TextBlock FontSize="15" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65 20 0 0" Height="30">Username</TextBlock>
-                    <xctk:WatermarkTextBox x:Name="Username" BorderThickness="0 0 0 1" FontSize="15" Height="25" Margin="65,0,54,0" Watermark="example123" />
+                    <TextBox x:Name="Username" BorderThickness="0 0 0 1" FontSize="15" Height="25" Margin="65,0,54,0" />
                     <TextBlock FontSize="15" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65 20 0 0" Height="30">Password</TextBlock>
-                    <!--<xctk:WatermarkPasswordBox x:Name="Password" BorderThickness="0 0 0 1" FontSize="15" Height="25" Margin="65,0,54,0" Watermark="Enter your password"  />-->
                     <PasswordBox x:Name="Password" BorderThickness="0 0 0 1" FontSize="15" Height="25" Margin="65,0,54,0"/>
                     <Button
             Style="{StaticResource RoundButtonTemplate}"

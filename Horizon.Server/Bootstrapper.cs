@@ -30,7 +30,8 @@ namespace Horizon.Server
 
             _container
                 .Singleton<IWindowManager, WindowManager>()
-                .Singleton<IEventAggregator, EventAggregator>()
+                //.Singleton<IEventAggregator, EventAggregator>()
+                .Singleton<EventAggregator>()
                 .Singleton<IAPIHelper, APIHelper>();
 
             GetType().Assembly.GetTypes()
