@@ -4,12 +4,14 @@ using Horizon.Server.UWP.Helper;
 using Horizon.Server.UWP.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
+using Horizon.Server.UWP.Interfaces;
 
 namespace Horizon.Server.UWP.ViewModels
 {
@@ -55,12 +57,8 @@ namespace Horizon.Server.UWP.ViewModels
         {
             get
             {
-                bool output = false;
+                var output = Username?.Length > 0 && Password?.Length > 0 && _clicked == false;
 
-                if (Username?.Length > 0 && Password?.Length > 0 && _clicked == false)
-                {
-                    output = true;
-                }
                 return output;
             }
         }
@@ -80,7 +78,7 @@ namespace Horizon.Server.UWP.ViewModels
             }
             catch (HttpRequestException ex)
             {
-                msg.Content = ex.InnerException.Message;
+                if (ex.InnerException != null) msg.Content = ex.InnerException.Message;
                 await msg.ShowAsync();
             }
             _clicked = false;

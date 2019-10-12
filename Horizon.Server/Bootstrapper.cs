@@ -8,13 +8,17 @@ using System.Windows.Controls;
 using Caliburn.Micro;
 using Horizon.Server.Helper;
 using Horizon.Server.ViewModels;
+using MessagePack.Formatters;
+using Networker.Server;
+using Networker.Server.Abstractions;
 using Xceed.Wpf.Toolkit;
+using IServer = Horizon.Server.Interfaces.IServer;
 
 namespace Horizon.Server
 {
     public class Bootstrapper : BootstrapperBase
     {
-        private SimpleContainer _container = new SimpleContainer();
+        private readonly SimpleContainer _container = new SimpleContainer();
         public Bootstrapper()
         {
             Initialize();
@@ -30,9 +34,10 @@ namespace Horizon.Server
 
             _container
                 .Singleton<IWindowManager, WindowManager>()
-                //.Singleton<IEventAggregator, EventAggregator>()
                 .Singleton<EventAggregator>()
-                .Singleton<IAPIHelper, APIHelper>();
+                .Singleton<IAPIHelper, APIHelper>()
+                .Singleton<IServer, Networking.Server>()
+                .Singleton<IServerBuilder, ServerBuilder>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)

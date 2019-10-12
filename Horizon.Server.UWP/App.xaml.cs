@@ -18,6 +18,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Horizon.Server.UWP.Interfaces;
+using Networker.Server;
+using Networker.Server.Abstractions;
+using IServer = Horizon.Server.UWP.Interfaces.IServer;
 
 namespace Horizon.Server.UWP
 {
@@ -46,6 +50,8 @@ namespace Horizon.Server.UWP
 
             _container
                 .Singleton<IAPIHelper, APIHelper>()
+                .Singleton<IServer, Networking.Server>()
+                .Singleton<IServerBuilder, ServerBuilder>()
                 .Singleton<EventAggregator>();
 
             _container.PerRequest<ShellViewModel>();

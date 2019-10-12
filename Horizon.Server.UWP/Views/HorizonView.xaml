@@ -5,9 +5,10 @@
     xmlns:local="using:Horizon.Server.UWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    MinHeight="800" MinWidth="1200" Height="auto" Width="auto">
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Button
             Style="{StaticResource RoundButtonTemplate}"
             Height="45"
@@ -16,7 +17,7 @@
             Content="Click"
             Background="#FF3C40C6"
             FontSize="20"
-            FontFamily="Tw Cen MT" Width="359"
-          />
+            Margin="65,50,54,0" FontFamily="Tw Cen MT" RenderTransformOrigin="0.51,0.533" Width="359"
+        />
     </Grid>
 </UserControl>

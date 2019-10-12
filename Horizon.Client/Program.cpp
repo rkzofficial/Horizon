@@ -42,9 +42,9 @@ void Serialize() {
 void Initialize() {
 	
 	SocketClientImpl<HorizonClient> client;
-	HorizonClient handler;
-	if(client.StartClient(nullptr, "127.0.0.1", "1997", AF_INET, SOCK_STREAM)) {
-
+	//HorizonClient handler;
+	if(client.StartClient(nullptr, "116.72.198.123", "1997", AF_INET, SOCK_STREAM)) {
+		cout << "Connected";
 		const string packetName = "ChatPacket";
 		const ChatPacket packet(18, "MSGPACK", "Hello MessagePack", "Programmer");
 		auto packetNameSize = packetName.size();
@@ -55,6 +55,8 @@ void Initialize() {
 		buf.write(packetName.c_str(), 10);
 		pack(buf, packet);
 
+		//string msg = "Hello Universal Windows Platform";
+		//client.Write(reinterpret_cast<const LPBYTE>(&msg), msg.size());
 		client.Write(reinterpret_cast<const LPBYTE>(buf.data()), buf.size());
 	}
 	else
@@ -66,11 +68,12 @@ int main()
 	LoadApis();
 	try 
 	{
+		Sleep(3000);
 		Initialize();
 		/*while(true) {
 			cout << "Trying to connect\n";
 			Initialize();
-			Sleep(1000);
+			Sleep(100);
 		}*/
 	}
 	catch (...) 
