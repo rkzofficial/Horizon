@@ -19,16 +19,9 @@
                     <TextBox x:Name="Username" BorderThickness="0 0 0 1" FontSize="15"  Margin="65,0,54,0" PlaceholderText="Please Enter Username"/>
                     <TextBlock FontSize="15" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65 20 0 0" Height="30">Password</TextBlock>
                     <PasswordBox x:Name="Password" BorderThickness="0 0 0 1" FontSize="15"  Margin="65,0,54,0" PlaceholderText="Please Enter Password"/>
-                    <Button
-            Style="{StaticResource RoundButtonTemplate}"
-            Height="45"
-            BorderBrush="#fff"
-            x:Name="Login"
-            Content="Login"
-            Background="#FF3C40C6"
-            FontSize="20"
-            Margin="65,50,54,0" FontFamily="Tw Cen MT" RenderTransformOrigin="0.51,0.533" Width="359"
-          />
+                    <Button Style="{StaticResource RoundButtonTemplate}" Height="45" BorderBrush="#fff" x:Name="Login" Margin="65,50,54,0" RenderTransformOrigin="0.51,0.533">
+                        <TextBlock Text="Login" HorizontalAlignment="Center"/>
+                    </Button>
                 </StackPanel>
 
             </Grid>

@@ -1,18 +1,38 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Horizon.Server.Style">
-  <Style x:Key="RoundButtonTemplate" TargetType="Button">
-    <Setter Property="Background" Value="DodgerBlue"/>
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="RoundButtonTemplate" TargetType="Button">
+    <Setter Property="Background" Value="#FF3C40C6"/>
     <Setter Property="Foreground" Value="White"/>
+    <Setter Property="FontFamily" Value="Tw Cen MT"/>
+    <Setter Property="FontSize" Value="20"/>
+    <Setter Property="Cursor" Value="Hand"/>
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="Button">
           <Border CornerRadius="5" Background="{TemplateBinding Background}" BorderThickness="1">
-            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ContentPresenter VerticalAlignment="Center">
             </ContentPresenter>
           </Border>
         </ControlTemplate>
       </Setter.Value>
     </Setter>
-  </Style>
+    <Style.Triggers>
+        <Trigger Property="IsMouseOver" Value="true">
+            <Trigger.EnterActions>
+                <BeginStoryboard>
+                    <Storyboard>
+                            <ColorAnimation To="#6367d2" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.25" AutoReverse="False" RepeatBehavior="1x"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </Trigger.EnterActions>
+            <Trigger.ExitActions>
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" FillBehavior="HoldEnd" Duration="0:0:0.25" AutoReverse="False" RepeatBehavior="1x"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </Trigger.ExitActions>
+        </Trigger>
+    </Style.Triggers>
+    </Style>
 </ResourceDictionary>

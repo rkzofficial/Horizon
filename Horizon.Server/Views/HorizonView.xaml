@@ -93,16 +93,9 @@
 
             <Grid Background="MediumOrchid"  Column="1" Row="0">
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <Button
-                        Style="{StaticResource RoundButtonTemplate}"
-                        Height="45"
-                        BorderBrush="#fff"
-                        x:Name="Click"
-                        Content="Click"
-                        Background="#FF3C40C6"
-                        FontSize="20"
-                        FontFamily="Tw Cen MT" Margin="-82,0,-187,-0.2"
-                    />
+                    <Button Style="{StaticResource RoundButtonTemplate}" Height="45" BorderBrush="#fff" x:Name="Click" Content="Click" Margin="-82,0,-187,-0.2">
+
+                    </Button>
                 </Grid>
             </Grid>
         </Grid>
