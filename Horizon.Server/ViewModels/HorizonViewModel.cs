@@ -18,7 +18,8 @@ namespace Horizon.Server.ViewModels
         }
         public void Click()
         {
-            _server.Start();
+            //_server.Start();
         }
+
     }
 }
