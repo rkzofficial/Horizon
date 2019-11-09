@@ -11,14 +11,17 @@ namespace Horizon.Server.ViewModels
     public class HorizonViewModel : Screen
     {
         private readonly IServer _server;
+        private readonly IWindowManager _windowManager;
 
-        public HorizonViewModel(IServer server)
+        public HorizonViewModel(IWindowManager windowManager, IServer server)
         {
+            _windowManager = windowManager;
             _server = server;
         }
         public void Click()
         {
-            _server.Start();
+            //_server.Start();
+            _windowManager.ShowWindow(new RemoteDesktopViewModel());
         }
     }
 }

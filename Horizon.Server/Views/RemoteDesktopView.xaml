@@ -1,0 +1,23 @@
+﻿<Window x:Class="Horizon.Server.Views.RemoteDesktopView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Horizon.Server.Views"
+        mc:Ignorable="d"
+        Title="RemoteDesktopView" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button Style="{StaticResource RoundButtonTemplate}" Height="45" Width="150" BorderBrush="#fff" x:Name="Capture">
+                <TextBlock Text="Capture" HorizontalAlignment="Center"/>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Image Margin="20" Source="{Binding RemoteImage}" />
+        </Grid>
+    </Grid>
+</Window>

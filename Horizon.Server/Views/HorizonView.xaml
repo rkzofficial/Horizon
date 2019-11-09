@@ -12,8 +12,8 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="3*" />
             </Grid.ColumnDefinitions>
-            <Border CornerRadius="5" Background="White" BorderBrush="Aquamarine" BorderThickness="1">
-                <Grid Background="Aquamarine" Column="0">
+            <Border CornerRadius="5" Background="White" BorderBrush="White" BorderThickness="1">
+                <Grid Background="White" Column="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1.5*"/>
                         <RowDefinition Height="1.5*"/>
@@ -25,14 +25,15 @@
                         <RowDefinition Height="6*"/>
                     </Grid.RowDefinitions>
                     <Border CornerRadius="5" Background="White" BorderBrush="BlueViolet" BorderThickness="1" Margin="5" Grid.Row="0">
-                        <Grid Name="Logo" Row="0"  Background="BlueViolet">
-                            <TextBlock Text="LOGO" Foreground="White" TextAlignment="Center" 
+                        <Grid Name="Logo" Row="0" >
+                            <TextBlock Text="Horizon Logo" Foreground="Black" TextAlignment="Center" FontSize="30"
                                        HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                         </Grid>
                     </Border>
 
                     <Border CornerRadius="5" Background="White" BorderBrush="Brown" BorderThickness="1" Margin="5" Grid.Row="1">
                         <Grid Name="BuildButton" Row="1"  Background="Brown">
+                            
                             <TextBlock Text="LOGO" Foreground="White" TextAlignment="Center" 
                                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                         </Grid>
