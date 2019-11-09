@@ -43,26 +43,16 @@ namespace Horizon.Server.ViewModels
 
         public string Password
         {
-            get 
-            {
-                return _password;
-            }
-            set 
-            {
-                _password = value;
-            }
+            get => _password;
+            set => _password = value;
         }
 
         public bool CanLogin
         {
             get
             {
-                bool output = false;
+                bool output = Username?.Length > 0 && Password?.Length > 0 && _clicked == false;
 
-                if(Username?.Length > 0 && Password?.Length > 0 && _clicked == false)
-                {
-                    output = true;
-                }
                 return output;
             }
         }
