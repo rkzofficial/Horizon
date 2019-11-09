@@ -39,7 +39,6 @@
                             </Button.Effect>
                             <Grid Margin="10,0">
                                 <TextBlock Text="Create" VerticalAlignment="Center" HorizontalAlignment="Left" Width="62" Margin="10 0 0 0"/>
-                                <materialDesign:PackIcon  Kind="Plus"  Width="20"  Height="23" HorizontalAlignment="Right" VerticalAlignment="Center" />
                             </Grid>
                         </Button>
                     </Grid>
