@@ -4,40 +4,46 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Horizon.Server.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              MinHeight="800" MinWidth="1200" Height="auto" Width="auto" Background="{x:Null}">
     <Border CornerRadius="5" Background="White" BorderBrush="Gray" BorderThickness="1">
-        <Grid>
+        <Grid >
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="3*" />
             </Grid.ColumnDefinitions>
             <Border CornerRadius="5" Background="White" BorderBrush="White" BorderThickness="1">
-                <Grid Background="White" Column="0">
+                <Grid Background="White" Column="0" >
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="1.5*"/>
-                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="75"/>
+                        <RowDefinition Height="75"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="6*"/>
                     </Grid.RowDefinitions>
-                    <Border CornerRadius="5" Background="White" BorderBrush="BlueViolet" BorderThickness="1" Margin="5" Grid.Row="0">
-                        <Grid Name="Logo" Row="0" >
-                            <TextBlock Text="Horizon Logo" Foreground="Black" TextAlignment="Center" FontSize="30"
-                                       HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    <Border CornerRadius="5" Background="White" BorderBrush="White" BorderThickness="1" Margin="5" Grid.Row="0">
+                        <Grid Name="Logo" Row="0"  Background="White">
+                            <TextBlock Text="Horizon LOGO" Foreground="Black" TextAlignment="Center" 
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" ></TextBlock>
                         </Grid>
                     </Border>
 
-                    <Border CornerRadius="5" Background="White" BorderBrush="Brown" BorderThickness="1" Margin="5" Grid.Row="1">
-                        <Grid Name="BuildButton" Row="1"  Background="Brown">
-                            
-                            <TextBlock Text="LOGO" Foreground="White" TextAlignment="Center" 
-                                   HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                        </Grid>
-                    </Border>
+                    <Grid  Name="BuildButton" Row="1" Margin="5" MinWidth="278" MinHeight="65" HorizontalAlignment="Center">
+                        <Button Style="{StaticResource RoundButtonTemplate}"  BorderBrush="#fff" x:Name="Click" Margin="29,15,29,15"  >
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="10" Color="#FF3C40C6" Opacity="0.5" ShadowDepth="4"/>
+                            </Button.Effect>
+                            <Grid Margin="10,0">
+                                <TextBlock Text="Create" VerticalAlignment="Center" HorizontalAlignment="Left" Width="62" Margin="10 0 0 0"/>
+                                <materialDesign:PackIcon  Kind="Plus"  Width="20"  Height="23" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                            </Grid>
+                        </Button>
+                    </Grid>
+
                     <Border CornerRadius="5" Background="Chartreuse" BorderBrush="Chartreuse" BorderThickness="1" Margin="5" Grid.Row="2">
                         <Grid Name="Clients" Row="2" Margin="5" Background="Chartreuse">
                             <TextBlock Text="clients" Foreground="White" TextAlignment="Center" 
@@ -72,21 +78,24 @@
                     </Border>
                     <Grid Row="7">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="0.5*"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <Border CornerRadius="5" Background="CornflowerBlue" BorderBrush="CornflowerBlue" BorderThickness="1" Margin="5" Grid.Row="0">
-                            <Grid Name="BlankSpace" Row="0" Margin="5" Background="CornflowerBlue">
+                        <Border CornerRadius="5" Background="White" BorderBrush="White" BorderThickness="1" Margin="5" Grid.Row="0">
+                            <Grid Name="BlankSpace" Row="0" Margin="5" Background="White">
                                 <TextBlock Text="Blank Space" Foreground="White" TextAlignment="Center" 
                                     HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                             </Grid>
                         </Border>
-                        <Border CornerRadius="5" Background="Red" BorderBrush="Red" BorderThickness="1" Margin="5" Grid.Row="1">
-                            <Grid Name="UserSetting" Row="1" Margin="5" Background="Red">
-                                <TextBlock Text="USER SETTING" Foreground="White" TextAlignment="Center" 
-                                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                      <Grid Name="UserSetting" Row="1" Margin="5" >
+                                <StackPanel>
+                                <Image Source="/Resources/Icons/UserProfile.png" Height="80" Width="80" Margin="0,0,10,0"></Image>
+                                <TextBlock Text="admin" Foreground="CadetBlue" TextAlignment="Center" 
+                                             HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                  <TextBlock Text="Type : gold Premium" Foreground="SeaGreen" TextAlignment="Center" 
+                                             HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
                             </Grid>
-                        </Border>
                     </Grid>
                 </Grid>
             </Border>
@@ -94,8 +103,8 @@
 
             <Grid Background="MediumOrchid"  Column="1" Row="0">
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <Button Style="{StaticResource RoundButtonTemplate}" Height="45" BorderBrush="#fff" x:Name="Click" Content="Click" Margin="-82,0,-187,-0.2">
-
+                    <Button Style="{StaticResource RoundButtonTemplate}" Height="45" BorderBrush="#fff" x:Name="Builder" Margin="-82,0,-187,-0.2">
+                        <TextBlock HorizontalAlignment="Center" Text="Builder"/>
                     </Button>
                 </Grid>
             </Grid>
