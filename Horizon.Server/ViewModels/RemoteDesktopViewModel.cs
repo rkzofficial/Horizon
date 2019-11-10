@@ -1,5 +1,4 @@
 ﻿using Caliburn.Micro;
-using ImageProcessor;
 using System;
 using System.Collections.Generic;
 using System.IO;

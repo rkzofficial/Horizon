@@ -9,7 +9,6 @@ using System.Windows;
 using Caliburn.Micro;
 using Xceed.Wpf.Toolkit;
 using Horizon.Server.Helper;
-using PropertyChanged;
 using Horizon.Server.EventModels;
 
 namespace Horizon.Server.ViewModels
@@ -31,14 +30,8 @@ namespace Horizon.Server.ViewModels
         }
         public string Username
         {
-            get 
-            { 
-                return _username;
-            }
-            set 
-            {
-                _username = value;
-            }
+            get => _username;
+            set => _username = value;
         }
 
         public string Password
@@ -51,7 +44,7 @@ namespace Horizon.Server.ViewModels
         {
             get
             {
-                bool output = Username?.Length > 0 && Password?.Length > 0 && _clicked == false;
+                var output = Username?.Length > 0 && Password?.Length > 0 && _clicked == false;
 
                 return output;
             }
