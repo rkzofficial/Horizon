@@ -6,107 +6,133 @@
              xmlns:local="clr-namespace:Horizon.Server.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             MinHeight="800" MinWidth="1200" Height="auto" Width="auto" Background="{x:Null}">
-    <Border CornerRadius="5" Background="White" BorderBrush="Gray" BorderThickness="1">
-        <Grid >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Border CornerRadius="5" Background="White" BorderBrush="White" BorderThickness="1">
-                <Grid Background="White" Column="0" >
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="75"/>
-                        <RowDefinition Height="75"/>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Border CornerRadius="5" Background="White" BorderBrush="White" BorderThickness="1" Margin="5" Grid.Row="0">
-                        <Grid Name="Logo" Row="0"  Background="White">
-                            <TextBlock Text="Horizon LOGO" Foreground="Black" TextAlignment="Center" 
+             MinHeight="800" MinWidth="1000" Background="{x:Null}">
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="5">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0" Color="LightGray" Opacity="0.7" />
+            </Border.Effect>
+            <Grid Background="White" Column="0"  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--<Border CornerRadius="5" Background="White" BorderBrush="White" BorderThickness="0" Margin="5" Grid.Row="0">
+                <Grid Name="Logo" Row="0"  Background="White">
+                    <TextBlock Text="Horizon LOGO" Foreground="Black" TextAlignment="Center" 
                                        HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" ></TextBlock>
-                        </Grid>
-                    </Border>
-
-                    <Grid  Name="BuildButton" Row="1" Margin="5" MinWidth="278" MinHeight="65" HorizontalAlignment="Center">
-                        <Button Style="{StaticResource RoundButtonTemplate}"  BorderBrush="#fff" x:Name="Click" Margin="29,15,29,15"  >
-                            <Button.Effect>
-                                <DropShadowEffect BlurRadius="10" Color="#FF3C40C6" Opacity="0.5" ShadowDepth="4"/>
-                            </Button.Effect>
-                            <Grid Margin="10,0">
-                                <TextBlock Text="Create" VerticalAlignment="Center" HorizontalAlignment="Left" Width="62" Margin="10 0 0 0"/>
-                            </Grid>
-                        </Button>
-                    </Grid>
-
-                    <Border CornerRadius="5" Background="Chartreuse" BorderBrush="Chartreuse" BorderThickness="1" Margin="5" Grid.Row="2">
-                        <Grid Name="Clients" Row="2" Margin="5" Background="Chartreuse">
-                            <TextBlock Text="clients" Foreground="White" TextAlignment="Center" 
-                                           HorizontalAlignment="Center" VerticalAlignment="Center">
-                            </TextBlock>
-                        </Grid>
-                    </Border>
-                    <Border CornerRadius="5" Background="CornflowerBlue" BorderBrush="CornflowerBlue" BorderThickness="1" Margin="5" Grid.Row="3">
-                        <Grid Name="SavedData" Row="3" Margin="5" Background="CornflowerBlue">
-                            <TextBlock Text="SavedData" Foreground="White" TextAlignment="Center" 
-                                       HorizontalAlignment="Center" VerticalAlignment="Center">
-                            </TextBlock>
-                        </Grid>
-                    </Border>
-                    <Border CornerRadius="5" Background="Crimson" BorderBrush="Crimson" BorderThickness="1" Margin="5" Grid.Row="4">
-                        <Grid Name="Settings" Row="4" Margin="5" Background="Crimson">
-                            <TextBlock Text="settings" Foreground="White" TextAlignment="Center" 
-                               HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                        </Grid>
-                    </Border>
-                    <Border CornerRadius="5" Background="DarkGreen" BorderBrush="DarkGreen" BorderThickness="1" Margin="5" Grid.Row="5">
-                        <Grid Name="Proxy" Row="5" Margin="5" Background="DarkGreen">
-                            <TextBlock Text="proxy" Foreground="White" TextAlignment="Center" 
-                               HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                        </Grid>
-                    </Border>
-                    <Border CornerRadius="5" Background="DeepPink" BorderBrush="DeepPink" BorderThickness="1" Margin="5" Grid.Row="6">
-                        <Grid Name="GeoLocation" Row="6" Margin="5" Background="DeepPink">
-                            <TextBlock Text="Geo Location" Foreground="White" TextAlignment="Center" 
-                               HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                        </Grid>
-                    </Border>
-                    <Grid Row="7">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="0.5*"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Border CornerRadius="5" Background="White" BorderBrush="White" BorderThickness="1" Margin="5" Grid.Row="0">
-                            <Grid Name="BlankSpace" Row="0" Margin="5" Background="White">
-                                <TextBlock Text="Blank Space" Foreground="White" TextAlignment="Center" 
-                                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                            </Grid>
-                        </Border>
-                      <Grid Name="UserSetting" Row="1" Margin="5" >
-                                <StackPanel>
-                                <Image Source="/Resources/Icons/UserProfile.png" Height="80" Width="80" Margin="0,0,10,0"></Image>
-                                <TextBlock Text="admin" Foreground="CadetBlue" TextAlignment="Center" 
-                                             HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                                  <TextBlock Text="Type : gold Premium" Foreground="SeaGreen" TextAlignment="Center" 
-                                             HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                                </StackPanel>
-                            </Grid>
-                    </Grid>
                 </Grid>
-            </Border>
+            </Border>-->
 
-
-            <Grid Background="MediumOrchid"  Column="1" Row="0">
-                <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <Button Style="{StaticResource RoundButtonTemplate}" Height="45" BorderBrush="#fff" x:Name="Builder" Margin="-82,0,-187,-0.2">
-                        <TextBlock HorizontalAlignment="Center" Text="Builder"/>
+                <Grid Row="1" Margin="5" MinWidth="278" MinHeight="65" HorizontalAlignment="Center">
+                    <Button Style="{StaticResource RoundButtonTemplate}"  BorderBrush="#fff" x:Name="Click" Margin="29,15,29,15"  >
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="#FF3C40C6" Opacity="0.5" ShadowDepth="4"/>
+                        </Button.Effect>
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock  Text="Create" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15 0 0 3"/>
+                                <TextBlock  Text="+" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="120 0 0 3"/>
+                            </StackPanel>
+                        </Button.Content>
                     </Button>
                 </Grid>
+
+                <Grid Row="2" >
+                    <Button  x:Name="Clients" BorderThickness="5 0 0 0" HorizontalContentAlignment="Left" Style="{StaticResource Nav}"  BorderBrush="#fff"   >
+                        <StackPanel  Orientation="Horizontal" Margin="20,0">
+
+                            <Canvas  Width="15" Height="15" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+                                <Path  Width="15" Height="15" Stretch="Fill" Fill="{Binding RelativeSource={RelativeSource AncestorType=Control}, Path=Foreground}" Data="F1 M 20,23.0002L 55.9998,23.0002C 57.1044,23.0002 57.9998,23.8956 57.9998,25.0002L 57.9999,46C 57.9999,47.1046 57.1045,48 55.9999,48L 41,48L 41,53L 45,53C 46.1046,53 47,53.8954 47,55L 47,57L 29,57L 29,55C 29,53.8954 29.8955,53 31,53L 35,53L 35,48L 20,48C 18.8954,48 18,47.1046 18,46L 18,25.0002C 18,23.8956 18.8954,23.0002 20,23.0002 Z M 21,26.0002L 21,45L 54.9999,45L 54.9998,26.0002L 21,26.0002 Z "/>
+                            </Canvas>
+                            <TextBlock Text="Clients" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                        </StackPanel>
+
+                    </Button>
+                </Grid>
+
+                <Grid Name="SaveData" Row="3" >
+                    <Button  BorderThickness="5 0 0 0" HorizontalContentAlignment="Left" Style="{StaticResource Nav}"  BorderBrush="#fff"   >
+                        <StackPanel  Orientation="Horizontal" Margin="20,0">
+
+                            <Canvas  Width="15" Height="15" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+                                <Path  Width="15" Height="15" Stretch="Fill" Fill="{Binding RelativeSource={RelativeSource AncestorType=Control}, Path=Foreground}" Data="F1 M 20,23.0002L 55.9998,23.0002C 57.1044,23.0002 57.9998,23.8956 57.9998,25.0002L 57.9999,46C 57.9999,47.1046 57.1045,48 55.9999,48L 41,48L 41,53L 45,53C 46.1046,53 47,53.8954 47,55L 47,57L 29,57L 29,55C 29,53.8954 29.8955,53 31,53L 35,53L 35,48L 20,48C 18.8954,48 18,47.1046 18,46L 18,25.0002C 18,23.8956 18.8954,23.0002 20,23.0002 Z M 21,26.0002L 21,45L 54.9999,45L 54.9998,26.0002L 21,26.0002 Z "/>
+                            </Canvas>
+                            <TextBlock Text="Save Data" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="20 0 0 0"/>
+                        </StackPanel>
+
+                    </Button>
+                </Grid>
+
+                <Grid Name="Proxy" Row="4" >
+                    <Button  BorderThickness="5 0 0 0" HorizontalContentAlignment="Left" Style="{StaticResource Nav}"  BorderBrush="#fff"   >
+                        <StackPanel  Orientation="Horizontal" Margin="20,0">
+
+                            <Canvas  Width="15" Height="15" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+                                <Path  Width="15" Height="15" Stretch="Fill" Fill="{Binding RelativeSource={RelativeSource AncestorType=Control}, Path=Foreground}" Data="F1 M 20,23.0002L 55.9998,23.0002C 57.1044,23.0002 57.9998,23.8956 57.9998,25.0002L 57.9999,46C 57.9999,47.1046 57.1045,48 55.9999,48L 41,48L 41,53L 45,53C 46.1046,53 47,53.8954 47,55L 47,57L 29,57L 29,55C 29,53.8954 29.8955,53 31,53L 35,53L 35,48L 20,48C 18.8954,48 18,47.1046 18,46L 18,25.0002C 18,23.8956 18.8954,23.0002 20,23.0002 Z M 21,26.0002L 21,45L 54.9999,45L 54.9998,26.0002L 21,26.0002 Z "/>
+                            </Canvas>
+                            <TextBlock Text="Proxy" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                        </StackPanel>
+
+                    </Button>
+                </Grid>
+
+                <Grid Name="Geo" Row="5" >
+                    <Button  BorderThickness="5 0 0 0" HorizontalContentAlignment="Left" Style="{StaticResource Nav}"  BorderBrush="#fff"   >
+                        <StackPanel  Orientation="Horizontal" Margin="20,0">
+
+                            <Canvas  Width="15" Height="15" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+                                <Path  Width="15" Height="15" Stretch="Fill" Fill="{Binding RelativeSource={RelativeSource AncestorType=Control}, Path=Foreground}" Data="F1 M 20,23.0002L 55.9998,23.0002C 57.1044,23.0002 57.9998,23.8956 57.9998,25.0002L 57.9999,46C 57.9999,47.1046 57.1045,48 55.9999,48L 41,48L 41,53L 45,53C 46.1046,53 47,53.8954 47,55L 47,57L 29,57L 29,55C 29,53.8954 29.8955,53 31,53L 35,53L 35,48L 20,48C 18.8954,48 18,47.1046 18,46L 18,25.0002C 18,23.8956 18.8954,23.0002 20,23.0002 Z M 21,26.0002L 21,45L 54.9999,45L 54.9998,26.0002L 21,26.0002 Z "/>
+                            </Canvas>
+                            <TextBlock Text="Geo Location" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                        </StackPanel>
+
+                    </Button>
+                </Grid>
+
+
+                <Grid Row="7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Border CornerRadius="5" Background="White" BorderBrush="White" BorderThickness="1" Margin="5" Grid.Row="0">
+                        <Grid Name="BlankSpace" Row="0" Margin="5" Background="White">
+                            <TextBlock Text="Blank Space" Foreground="White" TextAlignment="Center" 
+                                    HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        </Grid>
+                    </Border>
+                    <Grid Name="UserSetting" Row="1" Margin="5" >
+                        <StackPanel VerticalAlignment="Bottom" Margin="0 0 0 40">
+                            <Image Source="/Resources/Icons/UserProfile.png" Height="80" Width="80"/>
+                            <TextBlock Text="kirito1317" Foreground="CadetBlue" TextAlignment="Center" 
+                                             HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Text="Subscription : Premium" Foreground="SeaGreen" TextAlignment="Center" 
+                                             HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
             </Grid>
+        </Border>
+        <Border Grid.Column="1" CornerRadius="5">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0" Color="LightGray" Opacity="0.7" />
+            </Border.Effect>
+        <Grid Background="White"  Column="1" Row="0">
+            <ContentControl x:Name="ActiveItem"/>
         </Grid>
-    </Border>
+        </Border>
+    </Grid>
+
 </UserControl>

@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using Horizon.Server.Models;
+﻿using Horizon.Server.Models;
+using System.Threading.Tasks;
 
-namespace Horizon.Server.Interfaces
+namespace Horizon.Server.Helper
 {
     public interface IAPIHelper
     {

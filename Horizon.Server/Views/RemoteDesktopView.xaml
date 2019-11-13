@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Horizon.Server.Views"
         mc:Ignorable="d"
-        Title="RemoteDesktopView" Height="600" Width="800">
+        Tag=""
+        Title="Remote Desktop" Height="600" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"></RowDefinition>

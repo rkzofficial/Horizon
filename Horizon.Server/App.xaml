@@ -9,7 +9,11 @@
                 <local:Bootstrapper x:Key="Bootstrapper" />
             </ResourceDictionary>
            <ResourceDictionary Source="Style/Button.xaml"/>
-         </ResourceDictionary.MergedDictionaries>
+           <ResourceDictionary Source="Style/TitleBar.xaml"/>
+           <ResourceDictionary Source="Style/Navigation.xaml"/>
+           <ResourceDictionary Source="Style/Listbox.xaml"/>
+           <ResourceDictionary Source="Style/ContextMenu.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

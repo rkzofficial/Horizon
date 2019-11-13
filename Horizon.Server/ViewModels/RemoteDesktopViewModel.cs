@@ -14,10 +14,10 @@ namespace Horizon.Server.ViewModels
 {
     public class RemoteDesktopViewModel : PropertyChangedBase
     {
-
+        //public string Title { get; set; }
         public RemoteDesktopViewModel()
         {
-            
+            //Title = "Remote Desktop View Model";
         }
 
         public Uri RemoteImage { get; set; }

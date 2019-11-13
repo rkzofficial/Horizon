@@ -10,29 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Horizon.Server.Views
+namespace Horizon.Server.UserControls
 {
     /// <summary>
-    /// Interaction logic for ShellView.xaml
+    /// Interaction logic for ClientInfo.xaml
     /// </summary>
-    public partial class ShellView : Window
+    public partial class ClientInfo : UserControl
     {
-        public ShellView()
+        public ClientInfo()
         {
             InitializeComponent();
-        }
-
-        private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
-
-        private void Close_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Environment.Exit(0);
-
         }
     }
 }

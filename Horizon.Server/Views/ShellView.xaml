@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Horizon.Server.Views"
         mc:Ignorable="d"
-        Title="HorizonView" MinHeight="800" MinWidth="1200" Height="auto" Width="auto" ResizeMode="CanResizeWithGrip" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
-    <Grid>
-        <ContentControl x:Name="ActiveItem"/>
-    </Grid>
+        Title="HorizonView" MinHeight="830" MinWidth="1250" ResizeMode="CanResizeWithGrip" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}"
+        SizeToContent="WidthAndHeight">
+    <Border Padding="10">
+    <Grid Background="White">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="20" ShadowDepth="1" Color="LightGray" Opacity="0.5" />
+        </Grid.Effect>
+        <Grid.RowDefinitions >
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Row="0" Background="LightGray" MouseDown="TitleBar_MouseDown">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock  FontSize="12" Foreground="Black" FontWeight="DemiBold" Text="Horizon Remote Administration"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <!--<Grid Width="50" HorizontalAlignment="Center" >
+                        <Image HorizontalAlignment="Center" Source="../Resources/Icons/Cross.png" Height="12" Width="12"></Image>
+                    </Grid>
+
+                    <Grid Width="50" HorizontalAlignment="Center" Background="GreenYellow">
+                        <Image HorizontalAlignment="Center" Source="../Resources/Icons/Cross.png" Height="12" Width="12" ></Image>
+                    </Grid>-->
+
+                            <Grid Width="50" x:Name="Close" HorizontalAlignment="Center" Style="{StaticResource Cross}" MouseDown="Close_MouseDown">
+                                <Image HorizontalAlignment="Center" Source="../Resources/Icons/Cross.png" Height="12" Width="12"></Image>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Row="1" >
+                        <ContentControl x:Name="ActiveItem" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </Grid>
+    </Border>
+
+
 </Window>

@@ -24,5 +24,6 @@ namespace Horizon.Server.Views
         {
             InitializeComponent();
         }
+
     }
 }

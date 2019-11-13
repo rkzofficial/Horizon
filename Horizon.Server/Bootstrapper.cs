@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using Caliburn.Micro;
+using Horizon.Server.EventModels;
 using Horizon.Server.Helper;
+using Horizon.Server.Interfaces;
 using Horizon.Server.ViewModels;
 using MessagePack.Formatters;
 using Networker.Server;
@@ -37,14 +39,20 @@ namespace Horizon.Server
                 .Singleton<EventAggregator>()
                 .Singleton<IAPIHelper, APIHelper>()
                 .Singleton<IServer, Networking.Server>()
-                .Singleton<IServerBuilder, ServerBuilder>();
+                .Singleton<IServerBuilder, ServerBuilder>()
+                .Singleton<ClientsEvent>()
+                .Singleton<HorizonViewModel>()
+                .Singleton<ShellViewModel>()
+                .Singleton<ClientsViewModel>()
+                .PerRequest<LoginViewModel>()
+                .PerRequest<RemoteDesktopViewModel>();
 
-            GetType().Assembly.GetTypes()
-                .Where(type => type.IsClass)
-                .Where(type => type.Name.EndsWith("ViewModel"))
-                .ToList()
-                .ForEach(viewModelType => _container.RegisterPerRequest(
-                    viewModelType, viewModelType.ToString(), viewModelType));
+            //GetType().Assembly.GetTypes()
+            //    .Where(type => type.IsClass)
+            //    .Where(type => type.Name.EndsWith("ViewModel"))
+            //    .ToList()
+            //    .ForEach(viewModelType => _container.RegisterPerRequest(
+            //        viewModelType, viewModelType.ToString(), viewModelType));
         }
         protected override void OnStartup(object sender, StartupEventArgs e)
         {

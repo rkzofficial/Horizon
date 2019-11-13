@@ -35,6 +35,7 @@ namespace Horizon.Server.HandlePacket
 
         public override async Task Process(ChatPacket packet, IPacketContext packetContext)
         {
+
             MessageBox.Show(packet.Message);
         }
     }
