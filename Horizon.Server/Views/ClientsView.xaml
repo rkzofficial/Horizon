@@ -22,7 +22,7 @@
                                     </DockPanel>
                                 </MenuItem.Header>
                             </MenuItem>
-                            <MenuItem Padding="-3 5 0 5" Style="{StaticResource MenuItem}">
+                            <MenuItem cal:Message.Attach="Delete" Padding="-3 5 0 5" Style="{StaticResource MenuItem}">
                                 <MenuItem.Header>
                                     <DockPanel >
                                         <Image HorizontalAlignment="Left"  Source="../Resources/Icons/delete.png" Width="15" Height="15" />
@@ -77,7 +77,7 @@
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
                 </ListBox>
-                <Button x:Name="AddButton" Height="30" Width="80" Content="Add"/>
+                <Button x:Name="Add" Height="30" Width="80" Content="Add"/>
             </StackPanel>
             </Grid>
     </Grid>

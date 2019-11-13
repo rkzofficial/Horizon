@@ -17,9 +17,9 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Grid Row="0" Background="LightGray" MouseDown="TitleBar_MouseDown">
+            <Grid Row="0" Background="#FF0078D7" MouseDown="TitleBar_MouseDown">
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <TextBlock  FontSize="12" Foreground="Black" FontWeight="DemiBold" Text="Horizon Remote Administration"/>
+                            <TextBlock  FontSize="12" Foreground="White" FontWeight="DemiBold" Text="Horizon Remote Administration"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                             <!--<Grid Width="50" HorizontalAlignment="Center" >

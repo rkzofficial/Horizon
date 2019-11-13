@@ -42,17 +42,18 @@ namespace Horizon.Server.ViewModels
             };
         }
 
-        public void AddButton()
+        public void Add()
         {
             Clients.Add(new Client("24ms", "127.0.0.1", "DELL-PC", "rkh4c", "Admin", "Windows 10 Pro", "Google Chrome", "84%", "e229b1ab-3932-436a-b351-05e0472ebf28"));
-        }
-        public void RemButton()
-        {
-            Clients.RemoveAt(0);
         }
 
         public void Delete()
         {
+            foreach (Window w in Application.Current.Windows)
+            {
+                if ((string)w.Tag != SelectedClients.Id) continue;
+                w.Close();;
+            }
             Clients.Remove(SelectedClients);
         }
 

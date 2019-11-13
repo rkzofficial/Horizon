@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
-using Xceed.Wpf.Toolkit;
 using Horizon.Server.Helper;
 using Horizon.Server.EventModels;
 
@@ -61,7 +60,7 @@ namespace Horizon.Server.ViewModels
             }
             catch (Exception ex)
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             _clicked = false;
             NotifyOfPropertyChange(() => CanLogin);

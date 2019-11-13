@@ -13,7 +13,6 @@ using Horizon.Server.ViewModels;
 using MessagePack.Formatters;
 using Networker.Server;
 using Networker.Server.Abstractions;
-using Xceed.Wpf.Toolkit;
 using IServer = Horizon.Server.Interfaces.IServer;
 
 namespace Horizon.Server
