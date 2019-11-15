@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
+using Horizon.Server.HandlePacket;
 using Horizon.Server.Interfaces;
 using Horizon.Server.Models;
 
@@ -17,7 +18,7 @@ namespace Horizon.Server.ViewModels
     {
         private readonly IWindowManager _windowManager;
         private Client _selected;
-        public ObservableCollection<Client> Clients { get; set; }
+        public AsyncObservableCollection<Client> Clients { get; set; }
 
         public Client SelectedClients
         {
@@ -33,7 +34,7 @@ namespace Horizon.Server.ViewModels
         public ClientsViewModel(IWindowManager windowManager)
         {
             _windowManager = windowManager;
-            Clients = new ObservableCollection<Client>
+            Clients = new AsyncObservableCollection<Client>
             {
                 new Client("34ms", "127.0.0.1", "DELL-PC", "rkh4c", "User", "Windows 10 Pro", "Google Chrome", "84%", "e229b1ab-3932-436a-b351-05e0472ebf28"),
                 new Client("34ms", "127.0.0.1", "LENOVO-PC", "rajlk1317", "Admin", "Windows 10 Home", "", "54%", "e229b1ab-3932-436a-b251-05e0472ebf28"),
@@ -45,6 +46,11 @@ namespace Horizon.Server.ViewModels
         public void Add()
         {
             Clients.Add(new Client("24ms", "127.0.0.1", "DELL-PC", "rkh4c", "Admin", "Windows 10 Pro", "Google Chrome", "84%", "e229b1ab-3932-436a-b351-05e0472ebf28"));
+        }
+
+        public void AddClient(ClientPacket packet)
+        {
+            Clients.Add(new Client(packet.Ping, packet.Ip, packet.CompName, packet.UserName, packet.Privilege, packet.Os, packet.Activity, packet.Usage, packet.Id));
         }
 
         public void Delete()

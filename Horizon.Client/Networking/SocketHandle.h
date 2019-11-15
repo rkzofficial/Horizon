@@ -21,7 +21,6 @@
 */
 #ifndef SOCKETHANDLE_H
 #define SOCKETHANDLE_H
-#define WIN32
 #ifdef WIN32
 #include <winsock2.h>
 #include <ws2tcpip.h>

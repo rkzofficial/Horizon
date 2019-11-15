@@ -19,7 +19,6 @@
 **              1.2 - Update interface for TCP remote connection
 **              1.1 - Added multicast support
 */
-#define WIN32
 #ifdef WIN32
 #include <stdlib.h>
 #ifndef UNDER_CE

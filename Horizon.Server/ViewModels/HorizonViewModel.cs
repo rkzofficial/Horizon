@@ -34,6 +34,11 @@ namespace Horizon.Server.ViewModels
         //    ActivateItem(_clientsVM);
         //}
 
+        public void Create()
+        {
+            _server.Start();
+        }
+
         public void Clients()
         {
             ActivateItem(_container.GetInstance<ClientsViewModel>());

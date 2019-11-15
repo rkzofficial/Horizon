@@ -36,7 +36,7 @@
             </Border>-->
 
                 <Grid Row="1" Margin="5" MinWidth="278" MinHeight="65" HorizontalAlignment="Center">
-                    <Button Style="{StaticResource RoundButtonTemplate}"  BorderBrush="#fff" x:Name="Click" Margin="29,15,29,15"  >
+                    <Button Style="{StaticResource RoundButtonTemplate}"  BorderBrush="#fff" x:Name="Create" Margin="29,15,29,15"  >
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="10" Color="#FF3C40C6" Opacity="0.5" ShadowDepth="4"/>
                         </Button.Effect>

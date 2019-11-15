@@ -188,10 +188,12 @@
     <Compile Include="EventModels\ClientsEvent.cs" />
     <Compile Include="EventModels\LogOnEvent.cs" />
     <Compile Include="HandlePacket\ChatPacketHandler.cs" />
+    <Compile Include="HandlePacket\ClientPacketHandler.cs" />
     <Compile Include="Helper\APIHelper.cs" />
     <Compile Include="Interfaces\IAPIHelper.cs" />
     <Compile Include="Helper\PasswordBoxHelper.cs" />
     <Compile Include="Interfaces\IServer.cs" />
+    <Compile Include="Models\AsyncObservableCollection.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
     <Compile Include="Models\Clients.cs" />
     <Compile Include="Networking\Server.cs" />

@@ -1,5 +1,8 @@
-﻿using Horizon.Server.HandlePacket;
+﻿using Caliburn.Micro;
+using Horizon.Server.HandlePacket;
+using Horizon.Server.ViewModels;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Networker.Extensions.MessagePack;
 using Networker.Server.Abstractions;
@@ -12,8 +15,10 @@ namespace Horizon.Server.Networking
     {
         private readonly IServerBuilder _serverBuilder;
         private NIServer _server;
-        public Server(IServerBuilder server)
+        private readonly ClientsViewModel _clientVm;
+        public Server(IServerBuilder server, ClientsViewModel clientVm)
         {
+            _clientVm = clientVm;
             _serverBuilder = server;
         }
 
@@ -32,7 +37,12 @@ namespace Horizon.Server.Networking
                     loggingBuilder.AddConfiguration(config.GetSection("Logging"));
                     loggingBuilder.AddConsole();
                 })
+                .RegisterTypes(serviceCollection =>
+                {
+                    serviceCollection.AddSingleton(_clientVm);
+                })
                 .RegisterPacketHandler<ChatPacket, ChatPacketHandler>()
+                .RegisterPacketHandler<ClientPacket, ClientPacketHandler>()
                 .UseMessagePack()
                 .Build();
 

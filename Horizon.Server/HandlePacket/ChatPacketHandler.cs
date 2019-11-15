@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
+using Horizon.Server.ViewModels;
 using MessagePack;
 using Microsoft.Extensions.Logging;
 using Networker.Common;
@@ -27,15 +28,17 @@ namespace Horizon.Server.HandlePacket
     public class ChatPacketHandler : PacketHandlerBase<ChatPacket>
     {
         private readonly ILogger<ChatPacketHandler> _logger;
+        private readonly ClientsViewModel _clientVm;
 
-        public ChatPacketHandler(ILogger<ChatPacketHandler> logger)
+        public ChatPacketHandler(ILogger<ChatPacketHandler> logger, ClientsViewModel clientVm)
         {
+            _clientVm = clientVm;
             _logger = logger;
         }
 
         public override async Task Process(ChatPacket packet, IPacketContext packetContext)
         {
-
+            _clientVm.Add();
             MessageBox.Show(packet.Message);
         }
     }
